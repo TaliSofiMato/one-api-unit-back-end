@@ -1,0 +1,23 @@
+service: numbers-api
+
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+
+functions:
+  getOnes:
+    handler: handler.getOnes
+    events:
+      - http:
+          path: /OneEndPoint
+          method: get
+  getOne:
+    handler: handler.getOne
+    events:
+      - http:
+          path: /OneEndPoint/{id}
+          method: get
